@@ -1,10 +1,13 @@
+import Header from './Header';
+import MainSection from './MainSection';
 import '../styles/App.css'
-import Header from './Header'
+
 
 function App() {
   return (
     <>
       <Header />
+      <MainSection />
     </>
   )
 }

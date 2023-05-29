@@ -3,16 +3,25 @@ input[type=checkbox]{
 	width: 0;
 	visibility: hidden;
 }
-
 .switcher {
 	display: flex;
-	flex-direction: row;
-	gap: 1%;
+	flex-direction: space-between;
+	gap: 10px;
 	align-items: center;
 	color: white;
-	
 }
-
+.switcher div {
+	display: flex;
+	align-items: center;
+}
+.switcher span {
+	font-size: 12px;
+	font-weight: 300;
+	white-space: nowrap;
+	@media (max-width: 490px) {
+    font-size: 14px;
+  }
+}
 label {
 	cursor: pointer;
 	width: 46px;
@@ -21,24 +30,22 @@ label {
 	display: inline-block;
 	border-radius: 34px;
 	position: relative;
+	transition: .4s;
 }
-
 label::after {
 	content: '';
 	position: absolute;
-	right: 5%;
-	top: 17%;
-	bottom: 17%;
-	width: 30%;
+	right: 4px;
+	bottom: 4px;
+	width: 14px;
+	height: 14px;
 	background: #fff;
 	border-radius: 34px;
-	transition: 0.3s;
+	transition: .4s;
 }
-
 input:checked + label:after {
-	transform: translateX(-200%);
+	transform: translateX(-24px);
 }
-
 input:checked + label {
-	background-color: gray;
+	background-color: #ccc;
 }

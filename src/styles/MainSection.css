@@ -1,0 +1,13 @@
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.main-content {
+  background-color: black;
+  width: 770px;
+  height: 560px;
+}
