@@ -41,15 +41,14 @@ function MainSection() {
 
 
 
-
   return (
     <main>
       <div className="main-content">
-        <div className="city-image"></div>
+        <div className="city-photo"></div>
         <div className="info">
           <div className="search">
+            <AiOutlineSearch color="white" size={50}/>
             <input type="text" placeholder="Search city"/>
-            <AiOutlineSearch />
           </div>
         </div>
       </div>

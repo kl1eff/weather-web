@@ -7,7 +7,32 @@ main {
 }
 
 .main-content {
-  background-color: black;
   width: 770px;
   height: 560px;
+  display: flex;
+}
+
+.city-photo {
+  width: 50%;
+  background-color: gray;
+}
+
+.info {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.493);   
+  width: 50%;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 355px;
+  height: 56px;
+  position: relative; /* Сверстать импут через позишн абсолют */
+}
+
+input {
+  width: 293px;
+  height: 34px;
+
 }
