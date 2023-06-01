@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineSearch } from 'react-icons/ai'
 
 import '../styles/MainSection.css';
 
 
-
+//https://api.unsplash.com/search/photos?tags=urban&query=location[london]&per_page=1&client_id=t3SaVs2Cti4_1ZdeRR6zgPirK5P97fLWcUXd3gRYa1s
 function MainSection() {
   const weatherKeyAPI = 'ddb3c04efbbc46ad9d6201356230905';
   const weatherUrlBefore = 'https://api.weatherapi.com/v1/current.json?key=';
@@ -37,17 +37,20 @@ function MainSection() {
     setPhotoData(unsplashJSON);
   }
 
-  const buildURL = () => arguments.reduce((sum, current) => sum + current);
+  const buildURL = (...args) => args.reduce((sum, current) => sum + current);
 
-
+  useEffect(() => { getInfo('london') }, []);
 
   return (
     <main>
       <div className="main-content">
-        <div className="city-photo"></div>
+        <div className="city-photo"
+        style={{
+          backgroundImage: `url(${photoData?.results[0].urls.full})`
+        }}></div>
         <div className="info">
           <div className="search">
-            <AiOutlineSearch color="white" size={50}/>
+            <AiOutlineSearch color="#666" size={24}/>
             <input type="text" placeholder="Search city"/>
           </div>
         </div>

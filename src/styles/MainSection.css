@@ -14,7 +14,9 @@ main {
 
 .city-photo {
   width: 50%;
-  background-color: gray;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .info {
@@ -28,11 +30,27 @@ main {
   align-items: center;
   width: 355px;
   height: 56px;
-  position: relative; /* Сверстать импут через позишн абсолют */
+  position: relative;
 }
 
 input {
-  width: 293px;
-  height: 34px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 50px;
+  background: transparent;
+  border: 1px solid #b4b3b3;
+  color: white;
+  border-radius: 5px;
+}
 
+input::placeholder { 
+  font-weight: 300;
+  font-size: 16px;
+  color: #c3bfbf;
+}
+
+.search svg {
+  position: absolute;
+  left: 16px;
 }
