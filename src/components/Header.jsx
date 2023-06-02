@@ -8,7 +8,6 @@ function Header() {
         <a href="./index.html">Weather Web</a>
         <Switcher />
       </div>
-      
     </header>
   )
 }
