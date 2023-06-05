@@ -19,16 +19,25 @@ function MainSection() {
   const [photoData, setPhotoData] = useState(null);
 
 
-  const weatherOptions = [
-    weatherData?.current.condition.text ?? null,
-    weatherData?.current.temp_c ?? null,
-    weatherData?.location.region ?? null,
-    weatherData?.current.vis_km ?? null,
-    weatherData?.current.feelslike_c ?? null,
-    weatherData?.current.pressure_mb ?? null,
-    weatherData?.current.humidity ?? null,
-    weatherData?.current.wind_kph ?? null
-  ]
+  let weatherOptions = [];
+
+  if (weatherData) {
+    const current = weatherData.current;
+
+    weatherOptions = [
+      current.condition.text,
+      current.temp_c,
+      weatherData.location.region,
+      current.vis_km,
+      current.feelslike_c,
+      current.pressure_mb,
+      current.humidity,
+      current.gust_kph
+    ];
+  }
+
+
+
 
   useEffect(() => void loadInfo('london'), []);
   
@@ -75,8 +84,7 @@ function MainSection() {
           <div className="weather-info">
             <div className="city-name">{weatherData?.location?.name}</div>
             <div className="weather-card">
-              <div className="card-left"></div>
-              <div className="card-right">
+              <div className="card-left">
                 <ul>
                   <li className="weather-mini-block">
                     <span className="weather-option">Weather:</span>
@@ -107,10 +115,38 @@ function MainSection() {
                     {weatherOptions[6]}
                   </li>
                   <li className="weather-mini-block">
-                    <span className="weather-option">Wind:</span>
+                    <span className="weather-option">Gust speed:</span>
                     {weatherOptions[7]}kph
                   </li>
                 </ul>
+              </div>
+              <div className="card-right">
+                <div className="weather-icon flex-justify-content" style={{width: '100%'}}>
+                  <img src={weatherData?.current.condition.icon} alt="" style={{
+                    width: '64px',
+                    height: '64px'
+                  }}/>
+                </div>
+                <div className="right-options">
+                  <div className="code flex-justify-content">
+                    <div className="weather-option">Code: {weatherData?.current.condition.code}</div>
+                  </div>
+                  <div className="cords flex-justify-content flex-column">
+                      <div className="weather-option flex-justify-content">Coordinates</div>
+                      <div className="right-vals-sub flex-align">
+                        <div>longtitude: <span>{weatherData?.location.lon}</span></div>
+                        <div>latitude: <span>{weatherData?.location.lat}</span></div>
+                      </div>
+                  </div>
+                  <div className="wind flex-justify-content flex-column">
+                      <div className="weather-option flex-justify-content">Wind</div>
+                      <div className="right-vals-sub">
+                        <div>speed: <span>{weatherData?.current.wind_kph}</span></div>
+                        <div>deg: <span>{weatherData?.current.wind_degree}</span></div>
+                      </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
