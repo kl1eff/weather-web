@@ -25,10 +25,11 @@ header {
 }
 
 .head-wrapper::before {
-  content: var(--header-border-bottom);
   position: absolute;
+  display: var(--header-line);
   width: 100%;
   height: 0.5px;
   background: #ccc;
   bottom: -10px;
+  content: "";
 }

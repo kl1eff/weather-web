@@ -23,6 +23,7 @@ body {
   --background-alpha1: rgba(0, 0, 0, 0.493);
   --background-alpha2: rgba(0, 0, 0, 0.5);
   --shadows-main: none;
+  --header-line: none;
 }
 
 [data-light-mode] {
@@ -32,6 +33,7 @@ body {
   --background-alpha1: transparent;
   --background-alpha2: #e0e0ec;
   --shadows-main: 0 4px 15px rgba(0,0,0,.4);
+  --header-line: block;
 }
 
 a, a:visited {
