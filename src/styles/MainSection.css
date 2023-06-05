@@ -5,29 +5,25 @@ main {
   align-items: center;
   margin-bottom: 20px;
 }
-
 .main-content {
   width: 770px;
   height: 560px;
   display: flex;
+  box-shadow: var(--shadows-main);
   @media (max-width: 490px) {
     width: 380px;
   }
-  box-shadow: var(--shadows-main);
 }
-
 .main-left {
   width: 50%;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-
   @media (max-width: 490px) {
     width: 35%;
   }
 }
-
 .main-left::before {
   background: rgba(0,0,0,.4);
   position: absolute;
@@ -37,7 +33,6 @@ main {
   left: 0;
   content: "";
 }
-
 .main-right {
   padding: 15px;
   background-color: var(--background-alpha1);
@@ -47,7 +42,6 @@ main {
     width: 80%;
   }
 }
-
 .city-name {
   display: flex;
   justify-content: center;
@@ -59,7 +53,6 @@ main {
     font-size: 25px;
   }
 }
-
 .weather-card {
   background-color: var(--background-alpha2);
   height: 422px;
@@ -67,7 +60,6 @@ main {
   display: flex;
   justify-content: space-between;
 }
-
 .search {
   display: flex;
   align-items: center;
@@ -79,7 +71,6 @@ main {
     width: 100%;
   }
 }
-
 input, input:focus {
   position: absolute;
   outline: none;
@@ -92,42 +83,38 @@ input, input:focus {
   border-radius: 5px;
   font-size: 16px !important;
 }
-
 input::placeholder { 
   font-weight: 300;
   font-size: 16px;
   color: var(--input-border);
 }
-
 .search svg {
   position: absolute;
   left: 16px;
 }
-
 ul {
   list-style-type: none;
+  @media (max-width: 490px) {
+    font-size: 10px;
+  }
 }
-
 .weather-option {
   font-weight: 500;
   font-size: 19px;
   margin-right: 5px;
   @media (max-width: 490px) {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
-
 .weather-mini-block {
   margin-bottom: 20px;
 }
-
 .card-left {
   max-width: 190px;
   @media (max-width: 490px) {
-    max-width: 150px;
+    max-width: 130px;
   }
 }
-
 .card-right {
   display: flex;
   flex-direction: column;
@@ -137,23 +124,19 @@ ul {
     width: 50px;
   }
 }
-
 .right-vals-sub {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-
 .align {
   align-items: center;
 }
-
 .cords.flex-justify-content.flex-column {
   @media (max-width: 490px) {
     display: none;
   }
 }
-
 .right-options div div:first-child {
   @media (max-width: 490px) {
     justify-content: center;
@@ -163,20 +146,16 @@ ul {
     white-space: nowrap;
   }
 }
-
 .cords > :first-child {
   margin-bottom: 5px;
 }
-
 .cords div div {
   white-space: nowrap;
 }
-
 .wind div {
   display: flex;
   justify-content: center;
 }
-
 .right-options {
   display: flex;
   flex-direction: column;

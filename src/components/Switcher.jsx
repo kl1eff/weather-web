@@ -6,9 +6,9 @@ function Switcher() {
   const [theme, setTheme] = useState(false);
 
   const changeHandle = (e) => {
-    setTheme(e.target.checked);
     const body = document.querySelector('body');
 
+    setTheme(e.target.checked);
     theme ? body.removeAttribute('data-light-mode') : body.toggleAttribute('data-light-mode');
   }
 
@@ -17,11 +17,14 @@ function Switcher() {
     <div className='switcher'>
       <div>
         <input type="checkbox" id="switch" onChange={changeHandle}/>
+
         <label htmlFor="switch"></label>
       </div>
+
       <span>dark theme</span>
     </div>
   )  
 }
 
-export default Switcher;
+
+export default Switcher

@@ -6,10 +6,12 @@ function Header() {
     <header>
       <div className='head-wrapper'>
         <a href="./index.html">Weather Web</a>
+
         <Switcher />
       </div>
     </header>
   )
 }
 
-export default Header;
+
+export default Header

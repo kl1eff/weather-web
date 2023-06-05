@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { AiOutlineSearch } from 'react-icons/ai'
-
 import '../styles/MainSection.css';
 
 
@@ -14,9 +13,11 @@ function MainSection() {
   const photoUrlBefore = 'https://api.unsplash.com/search/photos?tags=urban&query=location[';
   const photoUrlAfter = ']&per_page=1&client_id=';
 
+
   const [city, setCity] = useState('london');
   const [weatherData, setWeatherData] = useState(null);
   const [photoData, setPhotoData] = useState(null);
+
 
 
   let weatherOptions = [];
@@ -41,10 +42,12 @@ function MainSection() {
 
   useEffect(() => void loadInfo('london'), []);
   
+
   const loadInfo = async () => {
     const weatherURL = buildURL(weatherUrlBefore, weatherKeyAPI, weatherUrlAfter, city);
     const unsplashURL = buildURL(photoUrlBefore, city, photoUrlAfter, photoKeyAPI);
-    
+
+
     const weatherResponse = await fetch(weatherURL);
     const weatherJSON = await weatherResponse.json();
     
@@ -54,6 +57,7 @@ function MainSection() {
 
     setWeatherData(weatherJSON);
     setPhotoData(unsplashJSON);
+
     console.log('DATA HAS LOADED      ')
   }
   
@@ -67,13 +71,16 @@ function MainSection() {
   return (
     <main>
       <div className="main-content">
-        <div className="main-left"
+        <div
+        className="main-left"
         style={{
           backgroundImage: `url(${photoData?.results[0].urls.full})`
         }}></div>
+
         <div className="main-right">
           <div className="search">
-            <AiOutlineSearch color="#666" size={24}/>
+            <AiOutlineSearch fill="#666" size={24}/>
+
             <input
             type="text"
             placeholder="Search city" 
@@ -81,8 +88,11 @@ function MainSection() {
             onKeyUp={checkEnterHandler}
             />
           </div>
+
           <div className="weather-info">
-            <div className="city-name">{weatherData?.location?.name}</div>
+            <div className="city-name">
+              {weatherData?.location?.name}
+            </div>
             <div className="weather-card">
               <div className="card-left">
                 <ul>
@@ -120,6 +130,7 @@ function MainSection() {
                   </li>
                 </ul>
               </div>
+
               <div className="card-right">
                 <div className="weather-icon flex-justify-content" style={{width: '100%'}}>
                   <img src={weatherData?.current.condition.icon} alt="" style={{
@@ -127,25 +138,40 @@ function MainSection() {
                     height: '64px'
                   }}/>
                 </div>
+
                 <div className="right-options">
                   <div className="code flex-justify-content">
-                    <div className="weather-option">Code: {weatherData?.current.condition.code}</div>
+                    <div className="weather-option">
+                      Code: {weatherData?.current.condition.code}
+                    </div>
                   </div>
+
                   <div className="cords flex-justify-content flex-column">
                       <div className="weather-option flex-justify-content">Coordinates</div>
+
                       <div className="right-vals-sub flex-align">
                         <div>longtitude: <span>{weatherData?.location.lon}</span></div>
                         <div>latitude: <span>{weatherData?.location.lat}</span></div>
                       </div>
                   </div>
+
                   <div className="wind flex-justify-content flex-column">
                       <div className="weather-option flex-justify-content">Wind</div>
                       <div className="right-vals-sub">
-                        <div>speed: <span>{weatherData?.current.wind_kph}</span></div>
-                        <div>deg: <span>{weatherData?.current.wind_degree}</span></div>
+                        <div>
+                          speed: 
+                          <span>
+                            {weatherData?.current.wind_kph}
+                          </span>
+                        </div>
+                        <div>
+                          deg:
+                          <span>
+                            {weatherData?.current.wind_degree}
+                          </span>
+                        </div>
                       </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -156,4 +182,5 @@ function MainSection() {
   )
 }
 
-export default MainSection;
+
+export default MainSection

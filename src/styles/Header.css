@@ -19,7 +19,6 @@ header {
   width: 770px;
   margin: 0 auto;
   position: relative;
-
   @media (max-width: 490px) {
     max-width: 90vw;
   }
