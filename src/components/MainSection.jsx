@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
-import { AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineSearch } from 'react-icons/ai';
 import '../styles/MainSection.css';
 
 
 function MainSection() {
-  const weatherKeyAPI = 'ddb3c04efbbc46ad9d6201356230905';
+  console.log(import.meta.env.VITE_UNSPLASH_KEY);
+
+
+  const weatherKeyAPI = import.meta.env.VITE_WEATHER_KEY;
   const weatherUrlBefore = 'https://api.weatherapi.com/v1/current.json?key=';
   const weatherUrlAfter = '&q=';
   
   
-  const photoKeyAPI = 't3SaVs2Cti4_1ZdeRR6zgPirK5P97fLWcUXd3gRYa1s';
+  const photoKeyAPI = import.meta.env.VITE_UNSPLASH_KEY;
   const photoUrlBefore = 'https://api.unsplash.com/search/photos?tags=urban&query=location[';
   const photoUrlAfter = ']&per_page=1&client_id=';
 
@@ -57,8 +60,6 @@ function MainSection() {
 
     setWeatherData(weatherJSON);
     setPhotoData(unsplashJSON);
-
-    console.log('DATA HAS LOADED      ')
   }
   
   const searchChangeHandler = (e) => setCity(e.target.value);
