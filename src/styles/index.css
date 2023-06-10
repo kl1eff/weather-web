@@ -15,7 +15,6 @@
 
 body {
   background: var(--background-color);
-  height: 100vh;
   --header-color: #242526;
   --background-color: #18191A;
   --color: #fff;
@@ -58,4 +57,11 @@ a, a:visited {
 
 .code .weather-option {
   margin-right: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }

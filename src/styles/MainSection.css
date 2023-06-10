@@ -1,27 +1,25 @@
 main {
-  height: 100vh;
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 .main-content {
-  width: 770px;
-  height: 560px;
+  max-width: 1024px;
+  width: 100%;
   display: flex;
   box-shadow: var(--shadows-main);
-  @media (max-width: 490px) {
-    width: 380px;
+  @media (max-width: 768px) {
+    display: block;
   }
 }
 .main-left {
   width: 50%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  object-fit: cover;
   position: relative;
-  @media (max-width: 490px) {
-    width: 35%;
+  @media (max-width: 768px) {
+    width: 100%;
   }
 }
 .main-left::before {
@@ -38,8 +36,8 @@ main {
   background-color: var(--background-alpha1);
   color: var(--color);
   width: 50%;
-  @media (max-width: 490px) {
-    width: 80%;
+  @media (max-width: 768px) {
+    width: 100%;
   }
 }
 .city-name {
@@ -63,7 +61,6 @@ main {
 .search {
   display: flex;
   align-items: center;
-  width: 355px;
   height: 56px;
   position: relative;
   margin-bottom: 15px;
